@@ -11,6 +11,10 @@ class RemoteControl {
     explicit RemoteControl(std::shared_ptr<Device> dev)
         : device(std::move(dev)) {}
 
+    void SetDevice(std::shared_ptr<Device> newDevice) {
+        device = std::move(newDevice);  // 새로운 장치로 변경
+    }
+
     virtual void TurnOn() { device->TurnOn(); }
 
     virtual void TurnOff() { device->TurnOff(); }
